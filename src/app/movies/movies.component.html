@@ -1,0 +1,29 @@
+<div class="card"></div>
+<div class="card mt-3">
+    <div class="card-header">
+        <h1>{{title}}</h1>
+        <ul class="list-group list-group-flush">
+            <li routerLink="/detail/{{movie.id}}" *ngFor="let movie of movies" class="list-group-item">
+                <span class="badge badge-primary ">
+                  {{movie.id}}
+                </span> {{movie.name}}
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--<div class="card" *ngIf="selectedMovie">
+    <div class="card-body">
+        <span class="badge badge-warning">
+          id: {{ selectedMovie.id }} name: {{ selectedMovie.name }}
+      </span>
+        <div class="input-group">
+            <input type="text" [(ngModel)]="selectedMovie.name" class="form-control">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Update</button>
+            </div>
+        </div>
+    </div>
+</div>-->
