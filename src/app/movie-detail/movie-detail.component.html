@@ -1,9 +1,22 @@
 <div class="card">
+    <img src="assets/img/{{movie.imageUrl}}" class="card-img-top">
     <div class="card-body">
-        <span class="badge badge-pill">{{movie.name}} selammmmm {{movie.id}}</span>
-        <div class="input-group-append">
-            <input type="text" class="form-control">
-            <button type="button" class="btn btn-outline-secondary">Update</button>
+        <span style="font-size:0.9em" class="badge badge-pill badge-dark">Id: {{movie.id}}</span> - <span style="font-size:0.9em;" class="badge badge-pill badge-dark">Name: {{movie.name}}</span>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="nameInput">Movies name</label>
+            <input [(ngModel)]="movie.name" type="text" class="form-control" id="nameInput">
         </div>
+        <div class="form-group">
+            <label for="urlInput">Movies image url</label>
+            <input [(ngModel)]="movie.imageUrl" type="text" class="form-control" id="urlInput">
+        </div>
+        <div class="form-group">
+            <label for="textarea1">Movies description</label>
+            <textarea [(ngModel)]="movie.description" class="form-control" id="textarea1" rows="3"></textarea>
+        </div>
+        <button (click)="updateFilm()" class="btn btn-primary">Update the film</button>
+
     </div>
 </div>

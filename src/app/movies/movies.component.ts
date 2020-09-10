@@ -23,4 +23,12 @@ export class MoviesComponent implements OnInit {
       subscribe(movies =>
         this.movies = movies);
   }
+  add(name,imageUrl,description){
+    this.movieService.add({name,imageUrl,description} as Movie).subscribe(movie => this.movies.push(movie));
+  }
+  delete(movie): void {
+    this.movies = this.movies.filter(m => m !== movie);
+    this.movieService.delete(movie).subscribe();
+
+  }
 }

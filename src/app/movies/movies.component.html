@@ -1,28 +1,48 @@
-<div class="card"></div>
 <div class="card mt-3">
     <div class="card-header">
-        <h1>{{title}}</h1>
+        <h1 class="text-primary">{{title}}</h1>
         <ul class="list-group list-group-flush">
             <li routerLink="/detail/{{movie.id}}" *ngFor="let movie of movies" class="list-group-item">
                 <span class="badge badge-primary ">
                   {{movie.id}}
                 </span> {{movie.name}}
-                <button type="button" class="close" aria-label="Close">
+                <button (click)="delete(movie)" type="button" class="close" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
             </li>
         </ul>
     </div>
 </div>
-<!--<div class="card" *ngIf="selectedMovie">
+<div class="card my-3">
+    <div class="card-header">
+        Add Movie
+    </div>
     <div class="card-body">
-        <span class="badge badge-warning">
+        <div class="form-group">
+            <label for="nameInput">Movies name</label>
+            <input #name type="text" class="form-control" id="nameInput">
+        </div>
+        <div class="form-group">
+            <label for="urlInput">Movies image url</label>
+            <input #imageUrl type="text " class="form-control " id="urlInput ">
+        </div>
+        <div class="form-group ">
+            <label for="textarea1 ">Movies description</label>
+            <textarea #description class="form-control " id="textarea1 " rows="3 "></textarea>
+        </div>
+        <button (click)="add(name.value,imageUrl.value,description.value);name.value='';imageUrl.value='';description.value='';" class="btn btn-primary ">Add the film</button>
+
+    </div>
+</div>
+<!--<div class="card " *ngIf="selectedMovie ">
+    <div class="card-body ">
+        <span class="badge badge-warning ">
           id: {{ selectedMovie.id }} name: {{ selectedMovie.name }}
       </span>
-        <div class="input-group">
-            <input type="text" [(ngModel)]="selectedMovie.name" class="form-control">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Update</button>
+        <div class="input-group ">
+            <input type="text " [(ngModel)]="selectedMovie.name " class="form-control ">
+            <div class="input-group-append ">
+                <button class="btn btn-outline-secondary " type="button ">Update</button>
             </div>
         </div>
     </div>
