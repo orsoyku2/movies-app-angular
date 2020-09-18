@@ -18,7 +18,7 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getMovie();
   }
-  getMovie() {
+  getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieDetail(id).subscribe(movie =>
       this.movie = movie);
@@ -27,7 +27,7 @@ export class MovieDetailComponent implements OnInit {
     this.movieService.update(this.movie)
       .subscribe(() => {
         this.location.back();
-      })
+      });
 
   }
 }
